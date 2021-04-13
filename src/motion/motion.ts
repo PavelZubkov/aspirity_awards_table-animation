@@ -20,11 +20,14 @@ export function Motion(props: { as: string, children: React.ReactNode[], classNa
     if (diff === 0) {
       return
     }
+    ref.current.style.zIndex = String(Math.ceil(diff))
     ref.current.animate([
       {
         transform: `translate(0, ${diff}px)`,
       },
-      { transform: 'translateX(0) translate(0, 0)' },
+      { 
+        transform: 'translateX(0) translate(0, 0)',
+      },
     ], {
         duration: Math.abs(1.8 * diff),
         easing: 'ease-out',
