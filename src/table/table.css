@@ -1,8 +1,12 @@
 .table {
-    display: block;
-    overflow: auto;
     font-size: 16px;
     border-collapse: collapse;
+}
+
+.table_outline {
+    max-width: 100vw;
+    overflow: auto;
+    overflow-y: hidden;
 }
 
 .table_row {

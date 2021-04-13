@@ -1,3 +1,24 @@
+@font-face {
+    font-family: 'DIN Pro';
+    src: local('DINPro-Regular'), url('./font/DINPro-Regular_13937.woff') format('woff');
+}
+
+body {
+    margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .page {
+        padding-left: 20px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .page {
+        padding-left: 50px;
+    }
+}
+
 .page {
     font-family: DIN Pro;
     color: #333333;

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Column } from 'react-table'
+import { useTable, useSortBy, Column } from 'react-table'
 import { Table } from '../table/table'
 import './app.css';
 
@@ -45,11 +45,16 @@ function createColumns(): Column<Row>[] {
 export function App() {
   const data = useMemo(createData, [])
   const columns = React.useMemo(createColumns, [])
-  
+  const table = useTable({
+    data,
+    columns,
+    initialState: { sortBy: [{ id: 'year' }] },
+  }, useSortBy)
+
   return (
     <div className="page">
       <h1 className="page_header">Monthly return</h1>
-      <Table data={data} columns={columns} />
+      <Table table={table} />
     </div>
   )
 }

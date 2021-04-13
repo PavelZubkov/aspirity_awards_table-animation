@@ -1,20 +1,54 @@
 import React from 'react';
-import {
-  useTable,
-  useSortBy,
-  Column,
-} from 'react-table'
+import { TableInstance } from 'react-table'
 import { Motion } from '../motion/motion'
 import './table.css'
 
-export function Table<Row extends object>({ data, columns }: { data: Row[], columns: Column<Row>[] }) {
-  const table = useTable({
-    data,
-    columns,
-    initialState: { sortBy: [{ id: 'year' }] },
-  }, useSortBy)
+function sortAnimation(
+  ref: React.MutableRefObject<HTMLElement>,
+  next: DOMRect,
+  prev?: DOMRect,
+) {
+  if (!prev) return
 
+  const animations = ref.current.getAnimations()
+  if (animations.some(animation => animation.playState === 'running')) {
+    return
+  }
+
+  const diff = prev.bottom - next.bottom 
+  if (diff === 0) return
+
+  ref.current.style.zIndex = String(Math.ceil(next.bottom))
+  ref.current.animate([
+    {
+      transform: `translate(0, ${diff}px)`,
+    },
+    { 
+      transform: 'translateX(0) translate(0, 0)',
+    },
+  ], {
+      duration: Math.abs(1.8 * diff),
+      easing: 'ease-out',
+  })
+}
+
+function TableRow(props: { [name:string]: any }) {
   return (
+    <Motion
+      {...props}
+      as="tr"
+      handleRender={sortAnimation}
+    >{props.children}
+    </Motion>
+  )
+}
+
+interface ITable<Row extends object> {
+  table: TableInstance<Row>
+}
+
+export function Table<Row extends object>({ table }: ITable<Row>) {
+  const renderedTable = (
     <table {...table.getTableProps()} className="table">
       <thead className="table_head">
         {table.headerGroups.map(headerGroup => (
@@ -34,17 +68,23 @@ export function Table<Row extends object>({ data, columns }: { data: Row[], colu
         {table.rows.map(row => {
           table.prepareRow(row)
           return (
-            <Motion as="tr" {...row.getRowProps()} className="table_row">
+            <TableRow {...row.getRowProps()} className="table_row">
               {row.cells.map(cell => (
                 <td {...cell.getCellProps()} className="table_cell">
                   {cell.render('Cell')}
                 </td>
               ))}
-            </Motion>
+            </TableRow>
           )
         })}
       </tbody>
     </table>
+  )
+  
+  return (
+    <div className="table_outline">
+      {renderedTable}
+    </div>
   )
 }
 
