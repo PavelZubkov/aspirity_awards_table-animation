@@ -14,7 +14,7 @@ export function Motion(props: IMotion) {
 
   useLayoutEffect(() => {
     const currentRect = ref.current!.getBoundingClientRect()
-    handleRender(ref, currentRect, prevRect.current )
+    handleRender(ref, currentRect, prevRect.current)
     prevRect.current = currentRect
   })
 

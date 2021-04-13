@@ -5,7 +5,7 @@ import './table.css'
 
 function sortAnimation(
   ref: React.MutableRefObject<HTMLElement>,
-  next: DOMRect,
+  current: DOMRect,
   prev?: DOMRect,
 ) {
   if (!prev) return
@@ -15,10 +15,10 @@ function sortAnimation(
     return
   }
 
-  const diff = prev.bottom - next.bottom 
+  const diff = prev.bottom - current.bottom 
   if (diff === 0) return
-
-  ref.current.style.zIndex = String(Math.ceil(next.bottom))
+    
+  ref.current.style.zIndex = String(Math.ceil(window.innerHeight - current.top))
   ref.current.animate([
     {
       transform: `translate(0, ${diff}px)`,
