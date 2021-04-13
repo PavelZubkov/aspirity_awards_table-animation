@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/aspirity_awards_table-animation/static/css/main.2508e57a.chunk.css",
-    "main.js": "/aspirity_awards_table-animation/static/js/main.07258ca9.chunk.js",
-    "main.js.map": "/aspirity_awards_table-animation/static/js/main.07258ca9.chunk.js.map",
+    "main.css": "/aspirity_awards_table-animation/static/css/main.1bafcb9a.chunk.css",
+    "main.js": "/aspirity_awards_table-animation/static/js/main.66fd426a.chunk.js",
+    "main.js.map": "/aspirity_awards_table-animation/static/js/main.66fd426a.chunk.js.map",
     "runtime-main.js": "/aspirity_awards_table-animation/static/js/runtime-main.caf90373.js",
     "runtime-main.js.map": "/aspirity_awards_table-animation/static/js/runtime-main.caf90373.js.map",
     "static/js/2.a911eb39.chunk.js": "/aspirity_awards_table-animation/static/js/2.a911eb39.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.2a1b5d9f.chunk.js": "/aspirity_awards_table-animation/static/js/3.2a1b5d9f.chunk.js",
     "static/js/3.2a1b5d9f.chunk.js.map": "/aspirity_awards_table-animation/static/js/3.2a1b5d9f.chunk.js.map",
     "index.html": "/aspirity_awards_table-animation/index.html",
-    "static/css/main.2508e57a.chunk.css.map": "/aspirity_awards_table-animation/static/css/main.2508e57a.chunk.css.map",
+    "static/css/main.1bafcb9a.chunk.css.map": "/aspirity_awards_table-animation/static/css/main.1bafcb9a.chunk.css.map",
     "static/js/2.a911eb39.chunk.js.LICENSE.txt": "/aspirity_awards_table-animation/static/js/2.a911eb39.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/aspirity_awards_table-animation/static/media/DINPro-Regular_13937.a46d9359.woff"
+    "static/media/app.css": "/aspirity_awards_table-animation/static/media/DINPro-Regular_13937.a46d9359.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.caf90373.js",
     "static/js/2.a911eb39.chunk.js",
-    "static/css/main.2508e57a.chunk.css",
-    "static/js/main.07258ca9.chunk.js"
+    "static/css/main.1bafcb9a.chunk.css",
+    "static/js/main.66fd426a.chunk.js"
   ]
 }
